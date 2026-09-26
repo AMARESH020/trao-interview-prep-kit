@@ -39,7 +39,7 @@ export default function DashboardPage() {
       try {
         setError("");
 
-        // Check logged-in user
+        // Check logged-in user first.
         const userData = await apiFetch<{ user: User }>("/auth/me");
 
         if (!mounted) {
@@ -48,7 +48,7 @@ export default function DashboardPage() {
 
         setUser(userData.user);
 
-        // Load interview kits
+        // Load the user's interview kits.
         const kitsData = await apiFetch<{ kits: Kit[] }>("/kits");
 
         if (!mounted) {
@@ -60,6 +60,19 @@ export default function DashboardPage() {
         console.error("Dashboard load error:", err);
 
         if (!mounted) {
+          return;
+        }
+
+        // A signed-out user should be sent to the login page.
+        if (
+          err instanceof Error &&
+          (
+            err.message === "Authentication required" ||
+            err.message === "Not authenticated" ||
+            err.message === "User no longer exists"
+          )
+        ) {
+          router.push("/login");
           return;
         }
 
@@ -76,7 +89,7 @@ export default function DashboardPage() {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [router]);
 
   async function handleLogout() {
     try {
