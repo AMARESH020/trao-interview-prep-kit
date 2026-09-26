@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { apiFetch } from "@/lib/api";
 
 type Kit = {
   _id: string;
@@ -32,69 +33,64 @@ export default function DashboardPage() {
   const [loggingOut, setLoggingOut] = useState(false);
 
   useEffect(() => {
+    let mounted = true;
+
     async function loadDashboard() {
       try {
-        // Check logged-in user
-        const userResponse = await fetch(
-          "http://localhost:5000/api/auth/me",
-          {
-            credentials: "include",
-          }
-        );
+        setError("");
 
-        if (!userResponse.ok) {
-          router.push("/login");
+        // Check logged-in user
+        const userData = await apiFetch<{ user: User }>("/auth/me");
+
+        if (!mounted) {
           return;
         }
 
-        const userData = await userResponse.json();
         setUser(userData.user);
 
         // Load interview kits
-        const kitsResponse = await fetch(
-          "http://localhost:5000/api/kits",
-          {
-            credentials: "include",
-          }
-        );
+        const kitsData = await apiFetch<{ kits: Kit[] }>("/kits");
 
-        if (!kitsResponse.ok) {
-          throw new Error("Unable to load kits");
+        if (!mounted) {
+          return;
         }
 
-        const kitsData = await kitsResponse.json();
         setKits(kitsData.kits ?? []);
       } catch (err) {
-        console.error(err);
+        console.error("Dashboard load error:", err);
+
+        if (!mounted) {
+          return;
+        }
+
         setError("Unable to load your interview kits.");
       } finally {
-        setLoading(false);
+        if (mounted) {
+          setLoading(false);
+        }
       }
     }
 
     loadDashboard();
-  }, [router]);
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   async function handleLogout() {
     try {
       setLoggingOut(true);
+      setError("");
 
-      const response = await fetch(
-        "http://localhost:5000/api/auth/logout",
-        {
-          method: "POST",
-          credentials: "include",
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Logout failed");
-      }
+      await apiFetch("/auth/logout", {
+        method: "POST",
+      });
 
       router.push("/login");
       router.refresh();
     } catch (err) {
-      console.error(err);
+      console.error("Logout error:", err);
       setLoggingOut(false);
       setError("Unable to logout. Please try again.");
     }
@@ -134,6 +130,7 @@ export default function DashboardPage() {
             )}
 
             <button
+              type="button"
               onClick={handleLogout}
               disabled={loggingOut}
               className="rounded-lg border border-red-800 bg-red-950/40 px-5 py-3 font-medium text-red-300 transition hover:bg-red-900/50 disabled:cursor-not-allowed disabled:opacity-50"
