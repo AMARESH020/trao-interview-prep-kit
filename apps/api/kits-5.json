@@ -1,0 +1,701 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-09-26T06:08:54.307Z",
+  "kits": [
+    {
+      "id": "case-001",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Example",
+          "company_url": "https://example.com",
+          "role": "Software Engineer",
+          "location": "Not specified",
+          "jd_chars": 172,
+          "researched_at": "2026-09-26T06:04:21.209Z",
+          "pages_used": [
+            "https://example.com/",
+            "https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips",
+            "https://www.youtube.com/watch?v=XKu_SEDAykw"
+          ]
+        },
+        "company_brief": {
+          "summary": "Learn more Public interview discussion: Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Source: https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Public interview discussion: How to Work at Google: Example Coding/Engineering Interview Source: https://www.youtube.com/watch?v=XKu_SEDAykw How to Work at Google: Example Coding/Engineering Interview How to Work at Google: Example Coding/Engineering Interview",
+          "what_they_do": "Learn more Public interview discussion: Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Source: https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Public interview discussion: How to Work at Google: Example Coding/Engineering Interview Source: https://www.youtube.com/watch?",
+          "sources": [
+            "https://example.com/",
+            "https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips",
+            "https://www.youtube.com/watch?v=XKu_SEDAykw"
+          ]
+        },
+        "role": {
+          "title": "Software Engineer",
+          "seniority": "mid-level",
+          "responsibilities": [],
+          "requirements": [
+            {
+              "id": "req-1",
+              "text": "Software Engineer Nice to have",
+              "kind": "domain",
+              "priority": "nice"
+            },
+            {
+              "id": "req-2",
+              "text": "Requirements: Python, SQL, Docker, AWS experience is preferred",
+              "kind": "technical",
+              "priority": "nice"
+            },
+            {
+              "id": "req-3",
+              "text": "Responsibilities: Build reliable backend services and collaborate with engineering teams Nice to have",
+              "kind": "domain",
+              "priority": "nice"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q-req-2-1",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "category": "technical",
+            "prompt": "You are tasked with migrating a monolithic Python service to a containerized architecture on AWS. Walk me through your process for containerizing the application using Docker and ensuring it remains performant and secure when deployed to ECS or EKS.",
+            "answer_outline": "Candidate should discuss multi-stage builds for smaller images, environment variable management for secrets, health check implementation, resource limits (CPU/Memory), and IAM role configuration for task permissions.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-2-2",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "category": "technical",
+            "prompt": "An analytical dashboard built on a PostgreSQL database is experiencing slow load times for reports aggregating millions of rows. How would you investigate the current query performance and what strategies would you employ to optimize it?",
+            "answer_outline": "Candidate should mention using EXPLAIN ANALYZE to identify sequential scans, adding appropriate indexes (B-tree, GIN), considering materialized views for complex aggregations, or partitioning the table by time if applicable.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-3-3",
+            "requirement_ids": [
+              "req-3"
+            ],
+            "category": "system-design",
+            "prompt": "Design a reliable, asynchronous background job processor for a backend service that handles intermittent bursts of high traffic. How do you ensure no messages are lost if a worker node crashes mid-process?",
+            "answer_outline": "Candidate should mention using a message broker (e.g., RabbitMQ/SQS), implementing acknowledgment patterns (ACK/NACK), visibility timeouts, idempotent consumer logic, and monitoring queue depth/DLQs.",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-1-4",
+            "requirement_ids": [
+              "req-1"
+            ],
+            "category": "technical",
+            "prompt": "How would you use Software Engineer Nice to have to solve a production engineering problem? Explain the design or implementation approach, important trade-offs, testing strategy, and operational considerations.",
+            "answer_outline": "Explain the core concepts of Software Engineer Nice to have; clarify the problem and constraints; describe a practical implementation; compare alternatives; cover failure modes and trade-offs; and explain how you would test and operate the solution.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f-req-2-1",
+            "front": "What are the primary benefits of using a multi-stage Docker build for Python applications?",
+            "back": "Reduces final image size by excluding build-time dependencies (like gcc/compilers) and temporary files, enhances security by reducing the attack surface, and keeps the production environment clean.",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-2-2",
+            "front": "When should you prefer a GIN index over a B-tree index in PostgreSQL?",
+            "back": "Use GIN (Generalized Inverted Index) when indexing composite types like JSONB, full-text search vectors, or array columns where multiple values are stored in a single cell and you need to query the internal structure.",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-3-3",
+            "front": "What is the purpose of a Dead Letter Queue (DLQ) in distributed backend systems?",
+            "back": "To capture and store messages that cannot be processed successfully after multiple retries, preventing 'poison pills' from blocking the main queue and allowing for manual inspection or later reprocessing.",
+            "requirement_ids": [
+              "req-3"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-1-4",
+            "front": "What should you know about Software Engineer Nice to have for interviews?",
+            "back": "Know the core concept, practical usage, common failure modes, trade-offs, testing approach, and one realistic example.",
+            "requirement_ids": [
+              "req-1"
+            ],
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "schedule": {
+          "days_available": 3,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-1",
+                "q-req-1-4"
+              ],
+              "minutes": 90
+            },
+            {
+              "day": 2,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 3,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-002",
+      "status": "failed",
+      "kit": null,
+      "error": {
+        "code": "CASE_TIMEOUT",
+        "message": "Case processing timed out after 120 seconds"
+      }
+    },
+    {
+      "id": "case-003",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Scikit-learn",
+          "company_url": "https://scikit-learn.org",
+          "role": "Machine Learning Engineer",
+          "location": "Not specified",
+          "jd_chars": 171,
+          "researched_at": "2026-09-26T06:06:31.347Z",
+          "pages_used": [
+            "https://scikit-learn.org/"
+          ]
+        },
+        "company_brief": {
+          "summary": "Public company information was retrieved from Scikit-learn's website.",
+          "what_they_do": "The provided website contains public information about Scikit-learn.",
+          "sources": [
+            "https://scikit-learn.org/"
+          ]
+        },
+        "role": {
+          "title": "Machine Learning Engineer",
+          "seniority": "mid-level",
+          "responsibilities": [],
+          "requirements": [
+            {
+              "id": "req-1",
+              "text": "Machine Learning Engineer Nice to have",
+              "kind": "technical",
+              "priority": "nice"
+            },
+            {
+              "id": "req-2",
+              "text": "Requirements: Python, machine learning, SQL, Docker Nice to have",
+              "kind": "technical",
+              "priority": "nice"
+            },
+            {
+              "id": "req-3",
+              "text": "Nice to have: cloud experience",
+              "kind": "domain",
+              "priority": "nice"
+            },
+            {
+              "id": "req-4",
+              "text": "Responsibilities: Build and deploy machine learning models Nice to have",
+              "kind": "technical",
+              "priority": "nice"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q-req-2-1",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "category": "technical",
+            "prompt": "You have a large dataset stored in a relational database and need to compute aggregate features for model training. How would you optimize your SQL query to handle millions of rows efficiently, and how do you ensure the Python pipeline ingestion doesn't bottleneck the preprocessing stage?",
+            "answer_outline": "Candidate should discuss indexing strategies, window functions vs group by, limiting data transfer using SELECT specific columns, and using chunked processing in Python (e.g., pandas/dask) or generator patterns to manage memory.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-4-2",
+            "requirement_ids": [
+              "req-4"
+            ],
+            "category": "system-design",
+            "prompt": "You have trained a scikit-learn random forest model. Design a production microservice to serve this model, specifically addressing how to handle versioning, model persistence, and the trade-off between serializing as a pickle file vs. using an intermediate format like ONNX.",
+            "answer_outline": "Candidate should mention API wrapping (Flask/FastAPI), containerization (Docker), model loading patterns (at startup vs per request), dependency management, and why ONNX/PMML might be preferred for cross-language compatibility or performance optimization.",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-3-3",
+            "requirement_ids": [
+              "req-3"
+            ],
+            "category": "system-design",
+            "prompt": "You are tasked with migrating an existing local machine learning pipeline to a cloud-based infrastructure. What strategies would you use to manage storage of training data, handle ephemeral compute clusters, and implement a CI/CD process for model artifacts?",
+            "answer_outline": "Candidate should discuss cloud storage (S3/GCS), auto-scaling compute (K8s/AWS SageMaker/GCP Vertex), monitoring training jobs, and artifact versioning in a model registry to ensure reproducibility.",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-1-4",
+            "requirement_ids": [
+              "req-1"
+            ],
+            "category": "technical",
+            "prompt": "An ML model performs well during validation but its prediction quality drops after deployment. How would you determine whether the cause is data drift, feature issues, model degradation, or a problem in the evaluation pipeline?",
+            "answer_outline": "Compare training and production distributions; validate feature pipelines; check data and concept drift; compare offline and online metrics; inspect segmentation and monitoring; reproduce failures; retrain or correct the pipeline based on evidence.",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f-req-2-1",
+            "front": "What is the primary risk of using 'pickle' to store scikit-learn models in a production environment?",
+            "back": "Security vulnerabilities (arbitrary code execution during unpickling) and version mismatch issues where the model cannot be loaded if the scikit-learn version or dependency environment differs from the training time.",
+            "requirement_ids": [
+              "req-2",
+              "req-4"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-1-2",
+            "front": "What is the difference between Data Drift and Concept Drift in model monitoring?",
+            "back": "Data Drift refers to changes in the distribution of input features (covariate shift), while Concept Drift refers to changes in the relationship between input features and the target variable (P(y|x) changes).",
+            "requirement_ids": [
+              "req-1",
+              "req-4"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-2-3",
+            "front": "Why is it often beneficial to use a Container (Docker) for deploying ML models versus installing dependencies directly on a VM?",
+            "back": "It ensures environment parity between development and production, handles complex C-based dependency requirements (common in ML stacks), and facilitates immutable infrastructure practices.",
+            "requirement_ids": [
+              "req-2",
+              "req-4"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-1-4",
+            "front": "What should you know about Machine Learning for interviews?",
+            "back": "Know the core concept, practical usage, common failure modes, trade-offs, testing approach, and one realistic example.",
+            "requirement_ids": [
+              "req-1"
+            ],
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "schedule": {
+          "days_available": 7,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 2,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-4-2"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 3,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 4,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 5,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 6,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-4-2"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 7,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-1"
+              ],
+              "minutes": 45
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-004",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Mongodb",
+          "company_url": "https://www.mongodb.com",
+          "role": "Data Engineer",
+          "location": "Not specified",
+          "jd_chars": 171,
+          "researched_at": "2026-09-26T06:06:38.078Z",
+          "pages_used": [
+            "https://www.mongodb.com/company/careers",
+            "https://www.mongodb.com/products/platform",
+            "https://www.mongodb.com/products/platform/atlas-database",
+            "https://www.mongodb.com/products/platform/atlas-search",
+            "https://www.mongodb.com/",
+            "http://bostinnovation.com/2011/02/15/mongodb-interview-4-questions-with-10gen-ceo-dwight-merriman",
+            "https://www.theregister.com/2023/10/03/mongodb_cto_interview_on_applications"
+          ]
+        },
+        "company_brief": {
+          "summary": "And let us know which excites you the most. See Open Jobs Life at MongoDB The database market is big. Well, according to IDC, it’ll reach $153 billion by 2027.",
+          "what_they_do": "And let us know which excites you the most. See Open Jobs Life at MongoDB The database market is big.",
+          "sources": [
+            "https://www.mongodb.com/company/careers",
+            "https://www.mongodb.com/products/platform",
+            "https://www.mongodb.com/products/platform/atlas-database",
+            "https://www.mongodb.com/products/platform/atlas-search",
+            "https://www.mongodb.com/",
+            "http://bostinnovation.com/2011/02/15/mongodb-interview-4-questions-with-10gen-ceo-dwight-merriman",
+            "https://www.theregister.com/2023/10/03/mongodb_cto_interview_on_applications"
+          ]
+        },
+        "role": {
+          "title": "Data Engineer",
+          "seniority": "mid-level",
+          "responsibilities": [],
+          "requirements": [
+            {
+              "id": "req-1",
+              "text": "Data Engineer Nice to have",
+              "kind": "domain",
+              "priority": "nice"
+            },
+            {
+              "id": "req-2",
+              "text": "Requirements: Python, SQL, ETL, data pipelines Nice to have",
+              "kind": "technical",
+              "priority": "nice"
+            },
+            {
+              "id": "req-3",
+              "text": "Nice to have: cloud platforms",
+              "kind": "domain",
+              "priority": "nice"
+            },
+            {
+              "id": "req-4",
+              "text": "Responsibilities: Build reliable data ingestion and transformation pipelines Nice to have",
+              "kind": "domain",
+              "priority": "nice"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q-req-2-1",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "category": "technical",
+            "prompt": "You are tasked with building a data pipeline that consumes JSON events from a Kafka topic and writes them to a MongoDB collection. If the data volume spikes by 10x, how would you ensure the pipeline remains resilient, and what specific steps would you take to prevent data loss or duplicate records during re-processing?",
+            "answer_outline": "Candidate should discuss: partitioning strategies in Kafka, implementing idempotent writes to MongoDB using unique constraints or upsert logic, handling backpressure, monitoring consumer lag, and horizontal scaling of consumer groups.",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-4-2",
+            "requirement_ids": [
+              "req-4"
+            ],
+            "category": "system-design",
+            "prompt": "Design an ingestion system that captures real-time clickstream data and transforms it for analytical queries. The system must handle schema evolution as new event fields are added over time. How would you structure the storage layer in MongoDB to facilitate this, and how would you manage the transformation logic?",
+            "answer_outline": "Candidate should discuss: Document model benefits for schema evolution, use of aggregation pipelines for transformations, handling of late-arriving data, indexing strategies for analytical queries, and separation of raw vs. transformed storage (Medallion architecture).",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-3-3",
+            "requirement_ids": [
+              "req-3"
+            ],
+            "category": "system-design",
+            "prompt": "You are migrating a monolithic data workload from an on-premises database to a multi-cloud environment using MongoDB Atlas. What are the key architectural trade-offs to consider when choosing between a primary-region cluster versus a globally distributed cluster in terms of latency, availability, and consistency?",
+            "answer_outline": "Candidate should discuss: CAP theorem trade-offs, write concern settings, read preference settings (nearest vs primary), data sovereignty requirements, and cross-region replication latency.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-1-4",
+            "requirement_ids": [
+              "req-1"
+            ],
+            "category": "technical",
+            "prompt": "How would you use Data Engineer Nice to have to solve a production engineering problem? Explain the design or implementation approach, important trade-offs, testing strategy, and operational considerations.",
+            "answer_outline": "Explain the core concepts of Data Engineer Nice to have; clarify the problem and constraints; describe a practical implementation; compare alternatives; cover failure modes and trade-offs; and explain how you would test and operate the solution.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f-req-4-1",
+            "front": "What is the primary benefit of using MongoDB's Document model for data engineering pipelines with varying schemas?",
+            "back": "It provides schema flexibility, allowing the pipeline to ingest evolving data without requiring costly 'ALTER TABLE' operations, and enables the storage of polymorphic data structures in a single collection.",
+            "requirement_ids": [
+              "req-4"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-2-2",
+            "front": "How do you ensure idempotency when building an ETL pipeline that writes to MongoDB?",
+            "back": "Use a unique identifier (like a business key or event ID) as the _id field in MongoDB and utilize the 'upsert' operation, which ensures that processing the same record multiple times results in the same final state.",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-3-3",
+            "front": "What is the role of the 'Read Preference' setting in a multi-region MongoDB Atlas cluster?",
+            "back": "It determines which replica set members can receive read requests; options like 'nearest' reduce latency by reading from the closest node, while 'primary' ensures strong consistency at the cost of higher latency for remote regions.",
+            "requirement_ids": [
+              "req-3"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-1-4",
+            "front": "What should you know about Data Engineer Nice to have for interviews?",
+            "back": "Know the core concept, practical usage, common failure modes, trade-offs, testing approach, and one realistic example.",
+            "requirement_ids": [
+              "req-1"
+            ],
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "schedule": {
+          "days_available": 14,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-1"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 2,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-4-2"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 3,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-4"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 4,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 5,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-1"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 6,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-4-2"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 7,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-4"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 8,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 9,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-1"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 10,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-4-2"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 11,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-4"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 12,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 13,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-1"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 14,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-4-2"
+              ],
+              "minutes": 60
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-005",
+      "status": "failed",
+      "kit": null,
+      "error": {
+        "code": "CASE_TIMEOUT",
+        "message": "Case processing timed out after 120 seconds"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { apiFetch } from "@/lib/api";
+
+export default function Home() {
+  const [status, setStatus] = useState("Checking API...");
+
+  useEffect(() => {
+    apiFetch<{ status: string; message: string }>("/health")
+      .then((data) => {
+        setStatus(`${data.status}: ${data.message}`);
+      })
+      .catch((error) => {
+        setStatus(`API Error: ${error.message}`);
+      });
+  }, []);
+
+  return (
+    <main className="flex min-h-screen items-center justify-center">
+      <div className="rounded-xl border p-8 shadow-sm">
+        <h1 className="text-2xl font-bold">
+          Trao AI Interview Prep Kit
+        </h1>
+
+        <p className="mt-4 text-gray-600">
+          {status}
+        </p>
+      </div>
+    </main>
+  );
+}

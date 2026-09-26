@@ -1,0 +1,32 @@
+[
+  {
+    "id": "case-001",
+    "jd": "Software Engineer. Requirements: Python, SQL, Docker, AWS experience is preferred. Responsibilities: Build reliable backend services and collaborate with engineering teams.",
+    "company_url": "https://example.com",
+    "days": 1
+  },
+  {
+    "id": "case-002",
+    "jd": "Backend Engineer. Requirements: Python, REST APIs, PostgreSQL, Docker. Nice to have: AWS. Responsibilities: Design backend services and maintain production APIs.",
+    "company_url": "https://example.com",
+    "days": 3
+  },
+  {
+    "id": "case-003",
+    "jd": "Machine Learning Engineer. Requirements: Python, machine learning, SQL, Docker. Nice to have: cloud experience. Responsibilities: Build and deploy machine learning models.",
+    "company_url": "https://example.com",
+    "days": 7
+  },
+  {
+    "id": "case-004",
+    "jd": "Data Engineer. Requirements: Python, SQL, ETL, data pipelines. Nice to have: cloud platforms. Responsibilities: Build reliable data ingestion and transformation pipelines.",
+    "company_url": "https://example.com",
+    "days": 14
+  },
+  {
+    "id": "case-005",
+    "jd": "DevOps Engineer. Requirements: Python, Docker, Kubernetes, CI/CD. Nice to have: AWS. Responsibilities: Automate deployments and operate reliable infrastructure.",
+    "company_url": "https://example.com",
+    "days": 60
+  }
+]

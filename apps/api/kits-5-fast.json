@@ -1,0 +1,1566 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-09-26T06:54:34.467Z",
+  "kits": [
+    {
+      "id": "case-001",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Example",
+          "company_url": "https://example.com",
+          "role": "Software Engineer",
+          "location": "Not specified",
+          "jd_chars": 172,
+          "researched_at": "2026-09-26T06:53:36.531Z",
+          "pages_used": [
+            "https://example.com/",
+            "https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips",
+            "https://www.youtube.com/watch?v=XKu_SEDAykw"
+          ]
+        },
+        "company_brief": {
+          "summary": "Learn more Public interview discussion: Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Source: https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Public interview discussion: How to Work at Google: Example Coding/Engineering Interview Source: https://www.youtube.com/watch?v=XKu_SEDAykw How to Work at Google: Example Coding/Engineering Interview How to Work at Google: Example Coding/Engineering Interview",
+          "what_they_do": "Learn more Public interview discussion: Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Source: https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Public interview discussion: How to Work at Google: Example Coding/Engineering Interview Source: https://www.youtube.com/watch?",
+          "sources": [
+            "https://example.com/",
+            "https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips",
+            "https://www.youtube.com/watch?v=XKu_SEDAykw"
+          ]
+        },
+        "role": {
+          "title": "Software Engineer",
+          "seniority": "mid-level",
+          "responsibilities": [
+            "Build reliable backend services and collaborate with engineering teams"
+          ],
+          "requirements": [
+            {
+              "id": "req-1",
+              "text": "Python",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-2",
+              "text": "SQL",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-3",
+              "text": "Docker",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-4",
+              "text": "AWS experience is preferred",
+              "kind": "technical",
+              "priority": "nice"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q-req-1-1",
+            "requirement_ids": [
+              "req-1"
+            ],
+            "category": "technical",
+            "prompt": "You are debugging a Python service where a background task is consuming significantly more memory over time. What specific tools and patterns would you use to identify a memory leak and optimize the resource footprint?",
+            "answer_outline": "Mention using tracemalloc or objgraph to track object allocations, identifying circular references, analyzing the use of long-lived global lists or dictionaries, and considering the implementation of __slots__ to reduce memory overhead per object.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-2-2",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "category": "technical",
+            "prompt": "You have a query that joins three large tables and takes 10 seconds to execute in a production database. Walk me through the step-by-step process of analyzing the execution plan to improve performance.",
+            "answer_outline": "Analyze EXPLAIN ANALYZE output, check for full table scans vs index scans, verify if appropriate indexes exist on foreign keys, look for nested loops on large datasets that should be hash joins, and evaluate if partitioning or materialized views would be beneficial.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-3-3",
+            "requirement_ids": [
+              "req-3"
+            ],
+            "category": "technical",
+            "prompt": "We are migrating a legacy monolith to a containerized microservices architecture. How do you design your Dockerfile to ensure small image sizes and secure builds while optimizing for faster CI/CD pipelines?",
+            "answer_outline": "Discuss multi-stage builds to exclude build-time dependencies, minimizing the number of layers by chaining commands, using specific base images (e.g., alpine or distroless), and implementing .dockerignore to keep context clean.",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-4-4",
+            "requirement_ids": [
+              "req-4"
+            ],
+            "category": "system-design",
+            "prompt": "Design a highly available file storage service on AWS. How would you handle file uploads, distribution across regions, and cost-effective long-term storage?",
+            "answer_outline": "Propose using S3 for object storage, CloudFront for edge caching, S3 Lifecycle Policies for transitioning to Glacier, and IAM roles for secure access. Discuss how to handle consistency and load balancing across availability zones.",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f-req-1-1",
+            "front": "What are the common strategies for optimizing Python performance when handling large data sets?",
+            "back": "Utilize generators to process items lazily to save memory, leverage built-in libraries like itertools or functools, perform heavy computation in C extensions or NumPy/Pandas, and use multiprocessing to bypass the Global Interpreter Lock (GIL).",
+            "requirement_ids": [
+              "req-1"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-2-2",
+            "front": "What is the trade-off between clustered and non-clustered indexes in SQL?",
+            "back": "A clustered index dictates the physical storage order of the table data, allowing fast range scans but limiting to one per table. A non-clustered index stores data separately from the table rows with a pointer to the actual data, making it faster for insert operations but requiring an additional lookup.",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-3-3",
+            "front": "Explain the significance of the Docker COPY command in a multi-stage build.",
+            "back": "The COPY --from stage instruction allows you to move only necessary artifacts (like a compiled binary or static assets) from an intermediate build environment to the final runtime image, effectively stripping away source code, compilers, and build tools to keep the image minimal and secure.",
+            "requirement_ids": [
+              "req-3"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-4-4",
+            "front": "How do AWS S3 Transfer Acceleration and CloudFront differ for content delivery?",
+            "back": "S3 Transfer Acceleration uses AWS Edge Locations to optimize the upload path from the client to the S3 bucket over the public internet, while CloudFront focuses on the distribution and caching of content from S3 to global users to reduce read latency.",
+            "requirement_ids": [
+              "req-4"
+            ],
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "schedule": {
+          "days_available": 1,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-3-3",
+                "q-req-1-1",
+                "q-req-2-2",
+                "q-req-4-4"
+              ],
+              "minutes": 210
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-002",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Example",
+          "company_url": "https://example.com",
+          "role": "Backend Engineer",
+          "location": "Not specified",
+          "jd_chars": 161,
+          "researched_at": "2026-09-26T06:53:49.047Z",
+          "pages_used": [
+            "https://example.com/",
+            "https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips",
+            "https://www.youtube.com/watch?v=XKu_SEDAykw"
+          ]
+        },
+        "company_brief": {
+          "summary": "Learn more Public interview discussion: Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Source: https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Public interview discussion: How to Work at Google: Example Coding/Engineering Interview Source: https://www.youtube.com/watch?v=XKu_SEDAykw How to Work at Google: Example Coding/Engineering Interview How to Work at Google: Example Coding/Engineering Interview",
+          "what_they_do": "Learn more Public interview discussion: Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Source: https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Public interview discussion: How to Work at Google: Example Coding/Engineering Interview Source: https://www.youtube.com/watch?",
+          "sources": [
+            "https://example.com/",
+            "https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips",
+            "https://www.youtube.com/watch?v=XKu_SEDAykw"
+          ]
+        },
+        "role": {
+          "title": "Backend Engineer",
+          "seniority": "mid-level",
+          "responsibilities": [
+            "Design backend services and maintain production APIs"
+          ],
+          "requirements": [
+            {
+              "id": "req-1",
+              "text": "Python",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-2",
+              "text": "REST APIs",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-3",
+              "text": "PostgreSQL",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-4",
+              "text": "Docker",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-5",
+              "text": "AWS Nice to have",
+              "kind": "technical",
+              "priority": "nice"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q-req-1-1",
+            "requirement_ids": [
+              "req-1"
+            ],
+            "category": "technical",
+            "prompt": "You are debugging a memory leak in a long-running Python application using FastAPI. What steps and tools would you use to pinpoint the leak, and how would you resolve common pitfalls like circular references or improper cache management?",
+            "answer_outline": "Mention using objgraph or tracemalloc to identify growing objects. Discuss the impact of global dictionaries acting as caches without TTL, the use of weakref for object management, and identifying unclosed resources like file handles or database connections.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-2-2",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "category": "system-design",
+            "prompt": "You need to expose a complex set of operations for a third-party partner via a REST API. How would you design the resource hierarchy, handle versioning without breaking existing integrations, and implement rate limiting to ensure platform stability?",
+            "answer_outline": "Resource-oriented design (nouns over verbs), versioning via URL path (e.g., /v1/), use of standard HTTP status codes, pagination strategies, and token bucket or sliding window algorithms for rate limiting.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-3-3",
+            "requirement_ids": [
+              "req-3"
+            ],
+            "category": "technical",
+            "prompt": "A query filtering on a JSONB column in PostgreSQL has become slow as the table grew to 10 million rows. How would you optimize this query and what index strategy would you recommend?",
+            "answer_outline": "Explain GIN vs GIST indexes for JSONB, creating expression indexes for specific keys, analyzing the query execution plan using EXPLAIN ANALYZE, and discussing the trade-off between index size and read performance.",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-4-4",
+            "requirement_ids": [
+              "req-4"
+            ],
+            "category": "technical",
+            "prompt": "Your CI/CD pipeline is consistently failing because of 'out of memory' errors during the build stage inside a Docker container. How would you modify the Dockerfile to optimize image size and resource usage?",
+            "answer_outline": "Multi-stage builds to exclude build tools in the final image, caching layers effectively by ordering commands (COPY requirements before app code), and using Alpine or slim base images.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-5-5",
+            "requirement_ids": [
+              "req-5"
+            ],
+            "category": "system-design",
+            "prompt": "Given a service currently running on-premise, how would you migrate its stateful storage to AWS, and what mechanisms would you use to maintain high availability across multiple availability zones?",
+            "answer_outline": "Recommending RDS for managed PostgreSQL, using Read Replicas for scaling, configuring Multi-AZ deployments for automated failover, and discussing data migration strategies like AWS DMS or logical replication.",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f-req-3-1",
+            "front": "What is the primary difference between a GIN index and a B-tree index in PostgreSQL when dealing with JSONB data?",
+            "back": "A B-tree index only indexes the entire column or a specific key extracted from the JSON; a GIN (Generalized Inverted Index) index allows for indexing individual keys and values within a JSONB object, enabling efficient searches for contained elements.",
+            "requirement_ids": [
+              "req-3"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-4-2",
+            "front": "What is the primary benefit of using a multi-stage Docker build?",
+            "back": "It allows you to use heavy build dependencies in the first stage and only copy the final binaries or runtime artifacts into a lightweight, secure final image, significantly reducing the attack surface and deployment size.",
+            "requirement_ids": [
+              "req-4"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-2-3",
+            "front": "What is a common strategy to implement REST API versioning that avoids breaking existing client integrations?",
+            "back": "Versioning via URL pathing (/api/v1/resource) is the most common and clear approach, though custom headers or accept-type versioning are alternatives that keep the URI resource-centric.",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-1-4",
+            "front": "What is the benefit of using __slots__ in a Python class?",
+            "back": "It prevents the creation of __dict__ for every instance, which significantly reduces memory footprint when creating thousands or millions of class instances by restricting dynamic attribute assignment.",
+            "requirement_ids": [
+              "req-1"
+            ],
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "schedule": {
+          "days_available": 3,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-3-3",
+                "q-req-4-4"
+              ],
+              "minutes": 105
+            },
+            {
+              "day": 2,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1",
+                "q-req-5-5"
+              ],
+              "minutes": 105
+            },
+            {
+              "day": 3,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-003",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Example",
+          "company_url": "https://example.com",
+          "role": "Machine Learning Engineer",
+          "location": "Not specified",
+          "jd_chars": 171,
+          "researched_at": "2026-09-26T06:54:00.594Z",
+          "pages_used": [
+            "https://example.com/",
+            "https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips",
+            "https://www.youtube.com/watch?v=XKu_SEDAykw"
+          ]
+        },
+        "company_brief": {
+          "summary": "Learn more Public interview discussion: Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Source: https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Public interview discussion: How to Work at Google: Example Coding/Engineering Interview Source: https://www.youtube.com/watch?v=XKu_SEDAykw How to Work at Google: Example Coding/Engineering Interview How to Work at Google: Example Coding/Engineering Interview",
+          "what_they_do": "Learn more Public interview discussion: Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Source: https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Public interview discussion: How to Work at Google: Example Coding/Engineering Interview Source: https://www.youtube.com/watch?",
+          "sources": [
+            "https://example.com/",
+            "https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips",
+            "https://www.youtube.com/watch?v=XKu_SEDAykw"
+          ]
+        },
+        "role": {
+          "title": "Machine Learning Engineer",
+          "seniority": "mid-level",
+          "responsibilities": [
+            "Build and deploy machine learning models"
+          ],
+          "requirements": [
+            {
+              "id": "req-1",
+              "text": "Python",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-2",
+              "text": "machine learning",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-3",
+              "text": "SQL",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-4",
+              "text": "Docker",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-5",
+              "text": "cloud experience Nice to have",
+              "kind": "domain",
+              "priority": "nice"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q-req-1-1",
+            "requirement_ids": [
+              "req-1"
+            ],
+            "category": "technical",
+            "prompt": "You are writing a data pipeline that processes a multi-gigabyte CSV file. How would you handle this without exceeding available RAM, while maintaining clean code using Python's generator patterns?",
+            "answer_outline": "Mention generator functions with yield, the csv module with line-by-line iteration, context managers for file handling, and efficient memory management techniques.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-2-2",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "category": "technical",
+            "prompt": "You trained a churn prediction model that shows high accuracy on the training set but performs poorly on the test set. How would you diagnose the source of this disparity, specifically looking for signs of data leakage or overfitting?",
+            "answer_outline": "Checking for feature leakage (e.g., using future information), analyzing cross-validation variance, comparing distribution of features between train/test, and regularization methods.",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-3-3",
+            "requirement_ids": [
+              "req-3"
+            ],
+            "category": "technical",
+            "prompt": "A critical analytics report query using multiple JOINs and a window function has become too slow to run during business hours. What steps would you take to analyze the execution plan and optimize this query?",
+            "answer_outline": "Analyze EXPLAIN ANALYZE output, check for missing indexes on join keys, discuss query refactoring, partition strategy, or pre-aggregation.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-4-4",
+            "requirement_ids": [
+              "req-4"
+            ],
+            "category": "technical",
+            "prompt": "You have a Python ML script that relies on several C-based libraries with specific OS dependencies. How would you construct a Dockerfile for this application to ensure consistent environments while minimizing image size?",
+            "answer_outline": "Multi-stage builds, pinning dependencies, use of slim/alpine base images, handling system-level requirements via apt-get, and .dockerignore usage.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-5-5",
+            "requirement_ids": [
+              "req-5"
+            ],
+            "category": "system-design",
+            "prompt": "Design a system that deploys and serves ML models on a cloud provider. How would you handle model versioning, horizontal scaling during traffic spikes, and automated monitoring for latency?",
+            "answer_outline": "Architecture involving model registry, container orchestration (e.g., K8s), load balancer usage, Prometheus for monitoring, and CI/CD pipelines.",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f-req-2-1",
+            "front": "What is the primary difference between data drift and concept drift?",
+            "back": "Data drift refers to changes in the distribution of input features (the x data), while concept drift refers to changes in the relationship between input features and the target variable (the mapping y = f(x)).",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-4-2",
+            "front": "What are the benefits of using a multi-stage Docker build for a Python ML application?",
+            "back": "It allows you to use a heavy build environment to compile dependencies and then copy only the necessary artifacts to a lightweight runtime image, significantly reducing the attack surface and deployment size.",
+            "requirement_ids": [
+              "req-4"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-3-3",
+            "front": "How do you avoid full table scans in SQL when filtering by a specific date range in a large table?",
+            "back": "Ensure there is a B-tree index on the date column; also consider partitioning the table by date if the dataset is massive, allowing the query planner to perform partition pruning.",
+            "requirement_ids": [
+              "req-3"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-1-4",
+            "front": "What is the purpose of Python's 'if __name__ == \"__main__\":' block in a data processing script?",
+            "back": "It prevents code inside the block from executing when the script is imported as a module in another file, which is essential for testing and modular ML pipelines.",
+            "requirement_ids": [
+              "req-1"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-5-5",
+            "front": "When deploying models in the cloud, what is the trade-off between managed services (like SageMaker/Vertex) vs custom Kubernetes deployments?",
+            "back": "Managed services offer faster time-to-market and built-in MLOps features but may lead to vendor lock-in and higher costs at scale; Kubernetes offers maximum portability and control but requires higher operational overhead.",
+            "requirement_ids": [
+              "req-5"
+            ],
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "schedule": {
+          "days_available": 7,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 2,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 3,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 4,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-4-4"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 5,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-5-5"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 6,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 7,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-004",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Example",
+          "company_url": "https://example.com",
+          "role": "Data Engineer",
+          "location": "Not specified",
+          "jd_chars": 171,
+          "researched_at": "2026-09-26T06:54:14.939Z",
+          "pages_used": [
+            "https://example.com/",
+            "https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips",
+            "https://www.youtube.com/watch?v=XKu_SEDAykw"
+          ]
+        },
+        "company_brief": {
+          "summary": "Learn more Public interview discussion: Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Source: https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Public interview discussion: How to Work at Google: Example Coding/Engineering Interview Source: https://www.youtube.com/watch?v=XKu_SEDAykw How to Work at Google: Example Coding/Engineering Interview How to Work at Google: Example Coding/Engineering Interview",
+          "what_they_do": "Learn more Public interview discussion: Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Source: https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Public interview discussion: How to Work at Google: Example Coding/Engineering Interview Source: https://www.youtube.com/watch?",
+          "sources": [
+            "https://example.com/",
+            "https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips",
+            "https://www.youtube.com/watch?v=XKu_SEDAykw"
+          ]
+        },
+        "role": {
+          "title": "Data Engineer",
+          "seniority": "mid-level",
+          "responsibilities": [
+            "Build reliable data ingestion and transformation pipelines"
+          ],
+          "requirements": [
+            {
+              "id": "req-1",
+              "text": "Python",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-2",
+              "text": "SQL",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-3",
+              "text": "ETL",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-4",
+              "text": "data pipelines",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-5",
+              "text": "cloud platforms Nice to have",
+              "kind": "domain",
+              "priority": "nice"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q-req-1-1",
+            "requirement_ids": [
+              "req-1"
+            ],
+            "category": "technical",
+            "prompt": "You are processing a 50GB CSV file that does not fit into RAM. How would you implement a memory-efficient transformation pipeline in Python, and how would you handle potential failures mid-processing?",
+            "answer_outline": "Mention using generators or iterators to process data in chunks; discuss libraries like pandas chunking or dask; describe checkpointing or state persistence strategies for fault tolerance.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-2-2",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "category": "technical",
+            "prompt": "A critical reporting query involving a three-table join is timing out on a production database. What steps would you take to diagnose the bottleneck and refactor the query or schema for performance?",
+            "answer_outline": "Use EXPLAIN ANALYZE to identify full table scans or nested loops; discuss indexing strategies (composite vs single); suggest materialized views or denormalization if the joins are too complex.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-3-3",
+            "requirement_ids": [
+              "req-3",
+              "req-4"
+            ],
+            "category": "system-design",
+            "prompt": "Design an automated ETL pipeline that ingests daily logs from multiple external sources, cleanses the data, and loads it into a data warehouse. How do you handle late-arriving data and ensure data quality?",
+            "answer_outline": "Use of DAG-based orchestrators like Airflow; implement watermarking for late data; describe data quality checks (e.g., Great Expectations) at the staging layer; mention idempotent transformations.",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-5-4",
+            "requirement_ids": [
+              "req-5"
+            ],
+            "category": "system-design",
+            "prompt": "You are migrating an on-premise data processing job to a managed cloud environment. What trade-offs would you consider between serverless functions (like Lambda/Cloud Functions) versus dedicated compute clusters (like EMR/Dataproc)?",
+            "answer_outline": "Compare cold-start latencies vs. constant running costs; discuss scaling limits; evaluate operational overhead of managed clusters vs. abstraction level of serverless; cost-efficiency analysis per workload type.",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f-req-4-1",
+            "front": "What is the primary difference between a batch and a streaming data pipeline architecture?",
+            "back": "Batch pipelines process data in finite, periodic chunks with high throughput, whereas streaming pipelines process continuous data events in real-time with low-latency requirements.",
+            "requirement_ids": [
+              "req-4"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-3-2",
+            "front": "Why is idempotency critical in ETL pipeline development?",
+            "back": "Idempotency ensures that running the same transformation logic multiple times on the same source data produces the same target state, which is essential for safe recovery from partial pipeline failures.",
+            "requirement_ids": [
+              "req-3"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-2-3",
+            "front": "What does a database 'covering index' provide for query optimization?",
+            "back": "A covering index contains all columns requested in a query, allowing the database engine to retrieve the data directly from the index tree without needing to perform an expensive lookup in the actual table storage.",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-1-4",
+            "front": "When is it appropriate to use a generator expression in Python?",
+            "back": "Use a generator expression when dealing with large datasets or infinite streams where lazy evaluation is required to minimize memory footprint compared to creating an entire list in memory.",
+            "requirement_ids": [
+              "req-1"
+            ],
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "schedule": {
+          "days_available": 14,
+          "days": [
+            {
+              "day": 1,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 2,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 3,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 4,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 5,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 6,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 7,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 8,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 9,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 10,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 11,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 12,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 13,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 14,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-005",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Example",
+          "company_url": "https://example.com",
+          "role": "DevOps Engineer",
+          "location": "Not specified",
+          "jd_chars": 160,
+          "researched_at": "2026-09-26T06:54:24.961Z",
+          "pages_used": [
+            "https://example.com/",
+            "https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips",
+            "https://www.youtube.com/watch?v=XKu_SEDAykw"
+          ]
+        },
+        "company_brief": {
+          "summary": "Learn more Public interview discussion: Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Source: https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Public interview discussion: How to Work at Google: Example Coding/Engineering Interview Source: https://www.youtube.com/watch?v=XKu_SEDAykw How to Work at Google: Example Coding/Engineering Interview How to Work at Google: Example Coding/Engineering Interview",
+          "what_they_do": "Learn more Public interview discussion: Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Source: https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Tips Developers Can Use in Their Next Job Hunt and Example Interview Questions Public interview discussion: How to Work at Google: Example Coding/Engineering Interview Source: https://www.youtube.com/watch?",
+          "sources": [
+            "https://example.com/",
+            "https://www.pluralsight.com/blog/learning-and-development/developers-next-job-hunt-tips",
+            "https://www.youtube.com/watch?v=XKu_SEDAykw"
+          ]
+        },
+        "role": {
+          "title": "DevOps Engineer",
+          "seniority": "mid-level",
+          "responsibilities": [
+            "Automate deployments and operate reliable infrastructure"
+          ],
+          "requirements": [
+            {
+              "id": "req-1",
+              "text": "Python",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-2",
+              "text": "Docker",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-3",
+              "text": "Kubernetes",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-4",
+              "text": "CI/CD",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req-5",
+              "text": "AWS Nice to have",
+              "kind": "technical",
+              "priority": "nice"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q-req-1-1",
+            "requirement_ids": [
+              "req-1"
+            ],
+            "category": "technical",
+            "prompt": "You are writing a script to automate log rotation and cleanup for an application generating gigabytes of data per hour. How would you handle memory efficiency when processing multi-gigabyte log files in Python, and how would you implement robust error handling for unexpected permission issues during file deletion?",
+            "answer_outline": "Mention using generators or file iterators to handle data streams rather than loading entire files into memory; discuss context managers for file operations; mention utilizing the os or pathlib modules for directory traversal and error handling with specific exceptions.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-2-2",
+            "requirement_ids": [
+              "req-2",
+              "req-4"
+            ],
+            "category": "technical",
+            "prompt": "A developer reports that their Docker container runs perfectly on their local machine but fails to start in the CI/CD environment with a 'file not found' error. How would you investigate this discrepancy, and what strategies would you use to ensure build consistency between development and production environments?",
+            "answer_outline": "Checking Dockerfile layer caching and build contexts; verifying environment variables and mount points; ensuring the use of multi-stage builds to minimize image size and hidden dependencies; validating that the CI/CD pipeline uses the same base image tags.",
+            "difficulty": 2,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-3-3",
+            "requirement_ids": [
+              "req-3"
+            ],
+            "category": "system-design",
+            "prompt": "You have a microservice deployed on Kubernetes that is experiencing intermittent 'CrashLoopBackOff' states. The logs indicate OOMKilled occasionally. What metrics would you examine to determine if the issue is a memory leak or simply insufficient resource limits, and how would you tune the Vertical Pod Autoscaler or resource requests to resolve it?",
+            "answer_outline": "Analyze Prometheus metrics for memory usage patterns; distinguish between steady-state growth versus sudden spikes; explain how to set and tune resource limits/requests based on P99 usage; discuss the impact of Kubernetes Quality of Service (QoS) classes.",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "q-req-5-4",
+            "requirement_ids": [
+              "req-5"
+            ],
+            "category": "technical",
+            "prompt": "You need to migrate an existing application to AWS while ensuring high availability. How would you design an infrastructure-as-code solution using Terraform or CloudFormation to ensure the application can survive an entire AWS Availability Zone outage?",
+            "answer_outline": "Discuss multi-AZ deployment strategies; use of Auto Scaling Groups across multiple subnets; load balancing via ALB across AZs; keeping stateful data in RDS with multi-AZ failover; handling DNS failover.",
+            "difficulty": 3,
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f-req-2-1",
+            "front": "What is the primary difference between Docker 'COPY' and 'ADD' instructions?",
+            "back": "COPY only supports copying local files to the container. ADD supports copying local files but can also automatically extract TAR archives and fetch remote URLs.",
+            "requirement_ids": [
+              "req-2"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-3-2",
+            "front": "How do Kubernetes Liveness and Readiness probes differ in their impact on service reliability?",
+            "back": "Readiness probes control whether the pod should receive traffic (service routing); Liveness probes determine if the pod should be killed and restarted by the Kubelet if the application is deadlocked.",
+            "requirement_ids": [
+              "req-3"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-4-3",
+            "front": "In a CI/CD pipeline, what is the 'shift-left' testing principle?",
+            "back": "Moving testing processes, security checks, and quality gates to the earliest possible stage in the development lifecycle to detect defects before they reach production.",
+            "requirement_ids": [
+              "req-4"
+            ],
+            "edited": false,
+            "pinned": false
+          },
+          {
+            "id": "f-req-5-4",
+            "front": "What are the core components of an AWS Auto Scaling Group (ASG)?",
+            "back": "Launch template or configuration (defining the instance), minimum/maximum/desired capacity, scaling policies (scheduled, dynamic, or predictive), and health check definitions.",
+            "requirement_ids": [
+              "req-5"
+            ],
+            "edited": false,
+            "pinned": false
+          }
+        ],
+        "schedule": {
+          "days_available": 60,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 2,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 3,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 4,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 5,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 6,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 7,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 8,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 9,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 10,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 11,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 12,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 13,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 14,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 15,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 16,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 17,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 18,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 19,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 20,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 21,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 22,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 23,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 24,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 25,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 26,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 27,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 28,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 29,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 30,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 31,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 32,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 33,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 34,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 35,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 36,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 37,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 38,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 39,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 40,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 41,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 42,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 43,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 44,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 45,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 46,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 47,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 48,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 49,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 50,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 51,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 52,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 53,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 54,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 55,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 56,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 57,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-2-2"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 58,
+              "focus": "System design and architecture",
+              "question_ids": [
+                "q-req-3-3"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 59,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-1-1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 60,
+              "focus": "Technical fundamentals and implementation",
+              "question_ids": [
+                "q-req-5-4"
+              ],
+              "minutes": 60
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    }
+  ]
+}
