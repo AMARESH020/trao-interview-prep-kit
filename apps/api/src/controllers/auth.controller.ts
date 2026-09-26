@@ -55,11 +55,23 @@ export async function register(
 
     req.session.userId = user._id.toString();
 
-    res.status(201).json({
-      user: {
-        id: user._id.toString(),
-        email: user.email,
-      },
+    req.session.save((error) => {
+      if (error) {
+        console.error("Registration session save error:", error);
+
+        res.status(500).json({
+          message: "Unable to create session",
+        });
+
+        return;
+      }
+
+      res.status(201).json({
+        user: {
+          id: user._id.toString(),
+          email: user.email,
+        },
+      });
     });
   } catch (error) {
     console.error("Registration error:", error);
@@ -114,11 +126,23 @@ export async function login(
 
     req.session.userId = user._id.toString();
 
-    res.json({
-      user: {
-        id: user._id.toString(),
-        email: user.email,
-      },
+    req.session.save((error) => {
+      if (error) {
+        console.error("Login session save error:", error);
+
+        res.status(500).json({
+          message: "Unable to create session",
+        });
+
+        return;
+      }
+
+      res.json({
+        user: {
+          id: user._id.toString(),
+          email: user.email,
+        },
+      });
     });
   } catch (error) {
     console.error("Login error:", error);

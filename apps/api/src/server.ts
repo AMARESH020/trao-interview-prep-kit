@@ -19,17 +19,21 @@ const frontendUrl = (
 ).replace(/\/+$/, "");
 
 const sessionSecret = process.env.SESSION_SECRET;
+const mongoUri = process.env.MONGODB_URI;
 
 if (!sessionSecret) {
   throw new Error("SESSION_SECRET is not defined");
 }
 
-/*
- * Render runs behind a reverse proxy.
- * This is required for secure cookies to work correctly
- * when the browser connects through HTTPS.
- */
-if (process.env.NODE_ENV === "production") {
+if (!mongoUri) {
+  throw new Error("MONGODB_URI is not defined");
+}
+
+const isProduction = process.env.NODE_ENV === "production";
+
+// Render / reverse-proxy support.
+// Required when using secure cookies behind Render's HTTPS proxy.
+if (isProduction) {
   app.set("trust proxy", 1);
 }
 
@@ -39,12 +43,10 @@ app.use(
   cors({
     origin: frontendUrl,
     credentials: true,
-  }),
+  })
 );
 
 app.use(express.json());
-
-const isProduction = process.env.NODE_ENV === "production";
 
 app.use(
   session({
@@ -53,7 +55,7 @@ app.use(
     saveUninitialized: false,
 
     store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI,
+      mongoUrl: mongoUri,
       collectionName: "sessions",
     }),
 
@@ -63,7 +65,7 @@ app.use(
       sameSite: isProduction ? "none" : "lax",
       maxAge: 1000 * 60 * 60 * 24 * 7,
     },
-  }),
+  })
 );
 
 app.get("/", (_req, res) => {
@@ -85,16 +87,10 @@ async function startServer(): Promise<void> {
     await connectDatabase();
 
     app.listen(PORT, "0.0.0.0", () => {
-      console.log(
-        `API running on port ${PORT}`,
-      );
+      console.log(`API running on port ${PORT}`);
     });
   } catch (error) {
-    console.error(
-      "Failed to start server:",
-      error,
-    );
-
+    console.error("Failed to start server:", error);
     process.exit(1);
   }
 }
