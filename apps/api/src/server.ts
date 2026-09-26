@@ -14,13 +14,23 @@ const app = express();
 
 const PORT = Number(process.env.PORT) || 5000;
 
-const frontendUrl =
-  process.env.FRONTEND_URL || "http://localhost:3000";
+const frontendUrl = (
+  process.env.FRONTEND_URL || "http://localhost:3000"
+).replace(/\/+$/, "");
 
 const sessionSecret = process.env.SESSION_SECRET;
 
 if (!sessionSecret) {
   throw new Error("SESSION_SECRET is not defined");
+}
+
+/*
+ * Render runs behind a reverse proxy.
+ * This is required for secure cookies to work correctly
+ * when the browser connects through HTTPS.
+ */
+if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", 1);
 }
 
 app.use(helmet());
@@ -29,10 +39,12 @@ app.use(
   cors({
     origin: frontendUrl,
     credentials: true,
-  })
+  }),
 );
 
 app.use(express.json());
+
+const isProduction = process.env.NODE_ENV === "production";
 
 app.use(
   session({
@@ -47,11 +59,11 @@ app.use(
 
     cookie: {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
       maxAge: 1000 * 60 * 60 * 24 * 7,
     },
-  })
+  }),
 );
 
 app.get("/", (_req, res) => {
@@ -72,15 +84,15 @@ async function startServer(): Promise<void> {
   try {
     await connectDatabase();
 
-    app.listen(PORT, () => {
+    app.listen(PORT, "0.0.0.0", () => {
       console.log(
-        `API running on http://localhost:${PORT}`
+        `API running on port ${PORT}`,
       );
     });
   } catch (error) {
     console.error(
       "Failed to start server:",
-      error
+      error,
     );
 
     process.exit(1);
