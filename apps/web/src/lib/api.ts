@@ -1,13 +1,17 @@
 const API_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+  process.env.NEXT_PUBLIC_API_URL ||
+  "http://localhost:5000/api";
+
+type ApiOptions = RequestInit;
 
 export async function apiFetch<T>(
   path: string,
-  options: RequestInit = {}
+  options: ApiOptions = {}
 ): Promise<T> {
   const response = await fetch(`${API_URL}${path}`, {
     ...options,
     credentials: "include",
+    cache: "no-store",
     headers: {
       "Content-Type": "application/json",
       ...(options.headers || {}),
@@ -15,12 +19,25 @@ export async function apiFetch<T>(
   });
 
   if (!response.ok) {
-    const error = await response.json().catch(() => ({
-      message: "Something went wrong",
-    }));
+    let message = "Request failed";
 
-    throw new Error(error.message || "API request failed");
+    try {
+      const data = await response.json();
+
+      if (
+        data &&
+        typeof data === "object" &&
+        "message" in data &&
+        typeof data.message === "string"
+      ) {
+        message = data.message;
+      }
+    } catch {
+      // Ignore non-JSON error responses.
+    }
+
+    throw new Error(message);
   }
 
-  return response.json();
+  return response.json() as Promise<T>;
 }
